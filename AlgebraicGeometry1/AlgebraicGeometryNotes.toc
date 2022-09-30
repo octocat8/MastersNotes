@@ -2,3 +2,4 @@
 \contentsline {section}{\numberline {1.1}Formal Definition}{7}%
 \contentsline {section}{\numberline {1.2}The Zariski Topology}{10}%
 \contentsline {section}{\numberline {1.3}Morphisms}{13}%
+\contentsline {section}{\numberline {1.4}Dimension}{14}%

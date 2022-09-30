@@ -154,5 +154,50 @@ Now we can begin to proceed with our construction of a topology on affine algebr
 \end{defn}
 
 \section{Morphisms}
-Seems like a familiar sounding word, though what are these things. They seem to be mappings from one affine algebraic variety to another. 
+Seems like a familiar sounding word, though what are these things. They seem to be mappings from one affine algebraic variety to another. The word restriction is used here, and seems a little technical.
+
+\begin{defn}
+    Let $V \subset \mathbb{A}^n, W \subset \mathbb{A}^m$ be affine algebraic varieties. A mapping, $F: V \to W$ is a \textit{morphism of algebraic varieties}, if it is the restriction of a polynomial map on the affine spaces $\mathbb{A}^n \to \mathbb{A}^m$
+\end{defn}
+\begin{rem}
+    Here a polynomial mapping would seem to mean that if $F$ was a morphism, then from an n-dimensional space to an m-dimensional space 
+    $$ (x_1, x_2, \ldots x_n) \in \mathbb{A}^n \mapsto (F_1(x), F_2(x), \ldots F_m(x)) \in \mathbb{A}^m $$
+    WHERE each $F_i = a_1x_1 + a_2x_2 + \ldots + a_nx_n$
+\end{rem}
+\begin{rem}
+    Also note, that a morphism becomes a \textit{isomorphism} if it admits an inverse, i.e. that the morphism is bijective, and it's inverse is also a morphism. If an isomorphism exists between two affine algebraic varieties, then logically they are isomorphic.
+\end{rem}
+\begin{eg}
+    Simply a change of coordinates of $\mathbb{A}^n$ is an example of a morphism. Here, suppose $L_i(x) = \lambda_{i1}x_1 + \lambda_{i2}x_2 + \ldots \lambda_{in}x_n + \mu_i$ denotes the change to each coordinate in $\mathbb{A}^m$. It becomes an isomorphism only if the associated matrix is invertible.
+\end{eg}
+\begin{eg}
+    The projection (interesting choice) of $\mathbb{A}^2 \to \mathbb{A}^1$ is an example of a morphism that is not bijective.
+\end{eg}
+\begin{proposition}
+    Let $F: V \to W$ be a morphism of affine algebraic varieties. $F$ is continuous in the Zariski topology.
+\end{proposition}
+\begin{proof}
+    It is enough to show that closed sets in $W$ are mapped back to closed sets in $V$.
+    Consider an element of the Zariski topology on $W$ This would be an element $W_p \subset W \cap \mathbb{A}^m$
+\end{proof}
+
+
+\section{Dimension}
+Regardless of what algebraic structure one deals with, this issue of dealing with how "big" the space is/how many tiny elements of the space are really required to form it is a key question. The first step to take is to figure out what constitutes the "atoms" of such spaces, the indivisible \textit{irreducible} elements of such a structure.
+\begin{defn}
+    A topological space $V$ is \textit{irreducible} if it cannot be written as the union of 2 non-trivial (meaning not $\phi$ or the space itself) closed subsets.
+\end{defn}
+\begin{rem}
+    Here note that we begin by talking about topological spaces, NOT affine algebraic varieties.
+\end{rem}
+Coincidentally, $\mathbb{A}^n$ is irreducible. This is because if we consider the affine algebraic variety $\mathbb{V}(0)$ then that is the same as $\mathbb{A}^n$. Thinking about it a little more and that seems to make sense. However if we consider, lets say $\mathbb{V}(xy, xz)$ then that can be written as $\mathbb{V}(x) \cup \mathbb{V}(y, z)$ Here the former denotes the plane in which $x=0$ and the latter denotes the x-axis (really speaking, we're dealing with complex numbers). In this newer example therefore, the example itself is reducible, but reducible to irreducible components. \\
+This brings us to an alternate way of showing if a closed subset of an affine algebraic variety is irreducible.
+\begin{defn}
+    A closed subset of an affine algebraic variety is an irreducible component of $V$ if it is \textit{maximal} with respect to inclusion among the closed subsets.
+\end{defn}
+Finally
+\begin{defn}
+    The $dimension$ dim $V$ of a variety $V$ is the length $d$ of the longest possible chain of proper irreducible subvarieties of $V$. 
+    $$V_0 \subset V_1 \subset \ldots \subset V_{d-1} \subset V_d = V $$
+\end{defn}
 \end{document}
