@@ -1,0 +1,115 @@
+\documentclass[12pt]{book}
+\date{\today}
+\title{Functional Analysis: G0B03a}
+\author{Lael John}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}{Corollary}[thm]
+\newtheorem{proposition}{Proposition}[section]
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem{eg}{Example}[chapter]
+\newtheorem*{huh}{Thoughts}
+\newtheorem*{rem}{Remark}
+\begin{document}
+\maketitle
+\chapter*{Preface}
+This set of notes contains my learning of functional analysis over this semester (September 2022 - January 2023). Most of the introduction of the course is relatively familiar, though I will still attempt to be as rigorous as I can when making these notes
+\tableofcontents
+\chapter{Banach Spaces and Hilbert Spaces}
+We first begin by refreshing our knowledge about Banach and Hilbert spaces, before proceeding with the rest of the course.
+\section{Normed Spaces, Banach Spaces}
+\begin{defn}
+    Let $X$ be a vector space over $\mathbb{C}$. Then a mapping $\|\|: X \to [0, \infty)$ is a \textit{norm} if the following properties are satisfied
+    \begin{enumerate}
+        \item $\|x+y\| \leq \|x\| + \|y\|, x, y \in X$
+        \item $\|\lambda x\| = |\lambda|\|x\|, x \in X, \lambda \in \mathbb{C}$
+        \item $\|x\| = 0 \iff x = 0$
+    \end{enumerate}
+    Then we call $(X, \|\|)$ a normed space.
+\end{defn}
+\begin{eg}
+    One of the examples we start out with is $(\mathbb{C}^n, \|\|_p)$ where 
+    $$\|(z_1, z_2, \ldots z_n)\|_p = \begin{cases}
+        \left(\sum_{i = 1}^n |z_i|^p\right)^{1/p}; 1 \leq p < \infty\\
+        \textnormal{max}_{1 \leq i \leq n} |z_i| ; p = \infty
+    \end{cases}$$
+\end{eg}
+\begin{rem}
+    Here note that the Minkowski inequality will be required to prove the triangular inequality for this norm. (Revise)
+\end{rem}
+\begin{eg}
+    Our next example is $(\mathit{C}[0, 1], \|\|_{\infty})$ or the normed space of continuous functions from $[0, 1] \to \mathbb{C}$ where $\|f\|_{\infty} = \textnormal{sup}_{x \in [0, 1]} |f(x)|$
+\end{eg}
+\begin{rem}
+    In this particular example, the norm is always defined, and less than infinity because continuous functions on closed and bounded sets are mapped to closed and bounded sets. (Try working this out on your own, the pulling back from a bounded set to a bounded set) (in this case however, the target set is to be shown to be bounded)
+\end{rem}
+\begin{defn}
+    Let $(X, \|\|)$ be a normed space. A sequence $<x_n>$ is said to be \textit{convergent} if $$\exists x \in X; \forall \epsilon > 0 \exists n_0 \in \mathbb{N}; n \geq n_0 \implies \| x_n - x \| < \epsilon$$
+    Similarly, a sequence $<x_n>$ is said to be \textit{Cauchy} if $$\forall \epsilon > 0 \exists n_0 \in \mathbb{N}; m, n \geq n_0 \implies \| x_m - x_n \| < \epsilon$$
+\end{defn}
+Both of the above are standard definitions, bringing us to the definition of completeness of a normed space.
+\begin{defn}
+    A normed space is said to be \textit{complete} if and only if every Cauchy sequence in $X$ is convergent in $X$. Such a complete normed space is termed a \textit{Banach space.}
+\end{defn}
+\begin{eg}
+    Consider the normed space $(\mathbb{C}^n, \|\|_p)$. 
+    \begin{proof}
+        We will first tackle the case where $p$ is finite. Now consider a Cauchy sequence $<x_n>$ in this space. This is equivalent to saying $$\forall \epsilon > 0 \exists n_0 \in \mathbb{N}; m, n \geq n_0 \implies \| x_m - x_n \|_p < \epsilon$$
+        $$\iff \left(\sum_{i = 1}^n |x_{m_i} - x_{n_i}|^p\right)^{1/p} < \epsilon$$
+        $$\iff \sum_{i = 1}^n |x_{m_i} - x_{n_i}|^p < \epsilon^p$$
+        $$\iff |x_{m_i} - x_{n_i}|^p < \epsilon^p; \forall i = 1,2 \ldots n$$
+        $$\iff |x_{m_i} - x_{n_i}| < \epsilon; \forall i = 1,2 \ldots n$$
+        Here we can simplify because we know $p$ is positive and greater than 1. 
+        By the last statment, we can see that for the sequence $<x_N>$, the sequence formed by $<x_{N_i}>$ is Cauchy in $\mathbb{C}$ which means that the sequence is also convergent in $\mathbb{C}$, to lets say $x_{0i}$. Thus we need to now show that the sequence $<x_N> = <(x_{N_1}, x_{N_2}, \ldots x_{N_n})>$ converges to $(x_{01}, x_{02}, \ldots x_{0n})$. We know that this limit exists in $\mathbb{C}^n$
+        Now given an $\epsilon$, when we consider $\| x_n - x_0 \|_p < \epsilon$
+        $$ \iff \left(\sum_{i = 1}^n |x_{n_i} - x_{0_i}|^p\right)^{1/p} < \epsilon$$
+        $$\iff \sum_{i = 1}^n |x_{n_i} - x_{0_i}|^p < \epsilon^p$$
+        $$\iff |x_{n_i} - x_{0_i}|^p < \epsilon^p; \forall i = 1,2 \ldots n$$
+        $$\iff |x_{n_i} - x_{0_i}| < \epsilon; \forall i = 1,2 \ldots n$$
+        WHICH is true. Since therefore, that statement is true for an arbitrary $\epsilon$, by our definition of convergence, $<x_n>$ is convergent in $\mathbb{C}^n$
+        Thus $\mathbb{C}^n$ is complete under the norm $\|\|_p$. when $p$ is finite.
+
+        When $p$ is infinite, a similar argument applies. 
+    \end{proof}
+\end{eg}
+\begin{huh}
+    Remember to do the work for $(\mathit{C}[0,1], \|\|_{\infty})$ 
+\end{huh}
+\begin{eg}
+    As a non example, consider the space $X = \{z: \mathbb{N} \to \mathbb{C} | z(n) = 0 \textnormal{for $n$ large enough}\}$ along with the norm $$\|z(n)\|_1 = \sum_{n = 1}^{\infty} |z(n)|$$
+    However, when you consider that same space $X$ as a subset of $l^1(\mathbb{N}) = \{z: \mathbb{N} \to \mathbb{C} | \sum_{n=1}^{\infty} |z(n)| < \infty\}$, it becomes a Banach space.
+\end{eg}
+\begin{proposition}
+    $(\mathcal{L}^p(\mathbb{N}), \|\|_p)$ is a Banach space for any $1 \leq p <\infty$ where $$\mathcal{L}^p(\mathbb{N}) = \{x: \mathbb{N} \to \mathbb{C} | \|x\|_p < \infty \}$$
+    and $$\mathcal{L}^{\infty}(\mathbb{N}) = \{x: \mathbb{N} \to \mathbb{C} | \|x\|_{\infty} < \infty \}$$
+\end{proposition}
+\section{Dual Banach Space}
+\begin{proposition}
+    Let $X$ be a Banach space, and $\omega: X \to \mathbb{C}$ be a linear map. The following are equivalent \begin{enumerate}
+        \item $\omega$ is continuous at 0
+        \item $\omega$ is continuous everywhere
+        \item $\exists M > 0$ such that $|\omega(x)| \leq M\|x\| \forall x \in X$
+    \end{enumerate}
+\end{proposition}
+\begin{defn}
+    Let $X$ be a Banach space. Define $X^* = \{ \omega: X \to \mathbb{C} | \omega$ is continuous and linear $\}$ Then 
+    \begin{enumerate}
+        \item $X^*$ is a vector space
+        \item $X^*$ is a normed space, where $\|\omega\| = \textnormal{sup}_{x \in X^*} |\omega(x)| < \infty$
+    \end{enumerate}
+\end{defn}
+\section{Hilbert Spaces}
+We now move on to spaces that have a little more fundamental structure(?). In an overview, all inner-products induce a norm, but the converse is not always true. Thus Hilbert spaces (complete inner-product spaces) are a subset of Banach spaces. 
+
+\begin{defn}
+    Let $H, K$ be vector spaces over $\mathbb{C}$, define $<>: H \times K \to \mathbb{C}$ as a \textit{sesquilinear form} if \begin{enumerate}
+        \item $< \lambda x + \mu y, z> = \lambda<x, z> + \mu<y, z>$, where $x, y \in H, z \in K, \lambda, \mu \in \mathbb{C}$
+        \item $<x, \lambda y + \mu z> = \overline{\lambda}<x, y> + \overline{\mu}<x, z>$ where $ x \in H, y, z \in K, \lambda, \mu \in \mathbb{C}$
+    \end{enumerate}
+    Here if we assume $H = K$ and that $<,>$ is symmetric $(<x,y> = \overline{<y, x>}) \forall x, y \in H$, then this sesquilinear form is called a \textit{Hermitian form}. These are positive if the form is greater than or equal to zero whenever we take the form of an element with itself. They are positive-definite if the form is always greater than zero for all non-zero elements in the space. 
+\end{defn}
+\end{document}
