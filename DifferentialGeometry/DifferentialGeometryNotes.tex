@@ -1,0 +1,53 @@
+\documentclass[12pt]{book}
+\date{\today}
+\title{Differential Geometry 1: G0B08a}
+\author{Lael John}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{proposition}{Proposition}[section]
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{example}{Example}[chapter]
+\newtheorem*{huh}{Thoughts}
+\newtheorem*{remark}{Remark}
+\begin{document}
+\maketitle
+\chapter*{Preface}
+This course seems to involve playing around with manifolds (which I'm given to understand are surfaces not situated \textit{within} another space, but rather are the space of study themselves). In particular, this course seems to involve a lot of geometry (DUH) and building up a calculus on various weird shapes (so to speak). Over the course of the semester, we will see how my initial impressions change.
+\tableofcontents
+\chapter{Differentiable Manifolds}
+This chapter is supposed to cover all the basics that I will end up using this semester in my study of these strange things called \textit{manifolds}, so we build up the required theory, starting from topological spaces, then on to topological manifolds, and then mapping, charting and atlas-ing our way to differentiable manifolds.
+\section{Topological Spaces}
+This just rehashes now what we've seen in all previous lectures (and is supposed to be prerequisite material) but once more unto the breach
+\begin{definition}
+    A \textit{topological space} $(X, \tau)$ is when you are given a set $X$ and $\tau \subset P(X)$ such that the following axioms hold true \begin{enumerate}
+        \item $\phi, X \in \tau$
+        \item For any set $\{U_i\}_{i \in I}$ of $U_i \in \tau \forall i \in I$, then $$ \bigcup_{i \in I} U_i \in \tau$$ where $I$ is an arbitrary index set. 
+        \item For a set of $\{U_i\}_{i = 1}^n$, again, where each element is in $\tau$, then $$\bigcap_{i = 1}^n U_i \in \tau$$
+    \end{enumerate}
+    The elements of $\tau$ are called \textit{open} sets. 
+    \begin{huh}Note that you don't really need to define an explicit "finite intersection closure", you could just work with intersection, and then proceed by induction to prove that it works for a finite number of sets.\end{huh}
+\end{definition}
+\begin{definition}
+    Let $p \in X$. Then a \textit{neighborhood} of $p$ is an open subset $U \in \tau$ such that $p \in U \in \tau$
+\end{definition}
+Finally we think about subsets in a topological space, and whether these arbitrary subsets themselves have a topological structure. It turns out that they do.
+\begin{definition}
+    If $Y \subset X$, then $(Y, \tau_Y)$ is a topological space where $$\tau_Y = \{ U \cap Y | U \in \tau\}$$ This topology is called an induced topology (intersection of the parents open sets with the subset under scrutiny.)
+\end{definition}
+We know pause and recall a certain fact about equivalence relations partition the sets they are used on.
+\begin{definition}
+    Let $\sim$ be an equivalence relation on a topological space $(X, \tau)$ (going to ommit writing the $\tau$ in future). Now consider $\pi: X \to X/\sim$ being a function. Here, since we have a function from a set to it's quotient set (partitioned into equivalence classes by an equivalence relation), we can say $X/\sim$ is a topologial space, by saying $U \in X/\sim$ open whenever $\pi^{-1}(U)$ open in $X$. This definition also implicitly makes $\pi$ a continuous function (because by definition, it pulls back open sets in the target to open sets in the domain.)
+\end{definition}
+\begin{definition}
+    We can call a topological space \textit{Hausdorff} if and only if $$\forall x, y \in X x \neq y, \exists U_x, U_y \in \tau; U_x \cap U_y = \phi$$
+    Essentially, when you consider two distinct points in a space, then you can also find neighborhood's around those points that do not overlap. 
+\end{definition}
+\begin{definition}
+    A \textit{basis} for a topology $B \subset \tau$ is a set such that each open set in $\tau$ is a union of elements of $B$. The topological space $(X, \tau)$ is considered to be \textit{second-countable} if there is a countable basis for $\tau$.
+\end{definition}
+\end{document}
