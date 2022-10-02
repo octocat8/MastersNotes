@@ -50,4 +50,47 @@ We know pause and recall a certain fact about equivalence relations partition th
 \begin{definition}
     A \textit{basis} for a topology $B \subset \tau$ is a set such that each open set in $\tau$ is a union of elements of $B$. The topological space $(X, \tau)$ is considered to be \textit{second-countable} if there is a countable basis for $\tau$.
 \end{definition}
+\section{Differentiable Manifolds}
+We now proceed to figure out what manifolds are (FINALLY)
+\begin{definition}
+    A \textit{topological manifold of dimension m} is a topological space which is Hausdorff and second-countable, AND locally homeomorphic to $\mathbb{R}^m$. Here a homeomorphism is a mapping that is continuous, bijective, and whose inverse is also continuous.
+\end{definition}
+\begin{remark}
+    When we mean locally homeomorphic, we mean there is an open neighborhood $U \subset M$ and a homeomorphism $\phi: U \to V \subset \mathbb{R}^m$ such that $V$ is an open subset of  $\mathbb{R}^m$
+\end{remark}
+Some other remarks will also need to be made, to better understand this preliminary concept, as well as lead to other observations that will require proofs
+\begin{remark}
+    We consider $(U, \phi)$ to be a \textit{chart}. 
+\end{remark}
+\begin{remark}
+    Any subset of a Hausdorff subspace is Hausdorff. All metric spaces are Hausdorff. The case is similar for the case of second-countability.
+\end{remark}
+But the notion of "charts" means there could exist multiple homeomorphisms between the topological space and $\mathbb{R}^m$, when could both of these be compared? Or rather how can such similar maps be compared in the first place?
+\begin{definition}
+    We call 2 charts, $(U_1, \phi_1)$ and $(U_2, \phi_2)$ to be smoothly compatible if the following function (with the given restricted domain) is a diffeomorphism.
+    $$\phi_2 \circ (\phi_1^{-1})|_{\phi_1 (U_1 \cap U_2)}: \phi_1(U_1 \cap U_2) \to \phi_2(U_1 \cap U_2)$$
+    A \textit{diffeomorphism} is a map that is differentiable, bijective, and whose inverse is also differentiable.
+\end{definition}
+Now that we have a notion of a chart, and the notion of a manifold, what can we do about a collection of charts from a topological space?
+\begin{definition}
+    We define a \textit{smooth atlas} $\mathcal{A}$ for $M$ to be a collection of charts $(U_i\phi_I), i \in I$ such that they cover the whole of $M$ and that each the charts taken pairwise are smoothly compatible.
+\end{definition}
+\begin{remark}
+    A smooth atlas $\mathcal{A}$ is said to be maximal, if for any other atlas $\mathcal{B}$ that exists such that $\mathcal{A} \subset \mathcal{B} \implies \mathcal{A} = \mathcal{B}$
+\end{remark}
+Now
+\begin{definition}
+    A \textit{differentiable or smooth} manifold, is a topological manifold equipped with a maximal smooth atlas.
+\end{definition}
+\section{Differentiable Maps}
+    Let $M$ be a differentiable/smooth manifold (i.e. a topological space with a maximal smooth atlas, i.e. a topological space equipped with a collection of charts, which are pairwise smoothly compatible, i.e. a topological space that is hausdorff and second-countable, that has an an open cover, each element of which is locally homeomorphic to real euclidean space.)
+\begin{definition}
+    Now we say a mapping $f:M \to \mathbb{R}$ is differentiable at $p \in M \iff \exists$ a chart $(U, \phi)$ aroudn $p$ such that $f \circ \phi^{-1}: \phi(U) \to \mathbb{R}$ is differentiable at $\phi(p)$
+\end{definition}
+\begin{remark}
+    This differentiability, if it holds for one chart, holds for all other charts given the same domain.
+\end{remark}
+\begin{remark}
+    $f: M \to N$ where $M, N$ are both differentiable manifolds, is a differentiable homeomorphism (NOTE: this does not mean it is a diffeomorphism, because $f^{-1}$ may in fact not be differentiable.)
+\end{remark}
 \end{document}
