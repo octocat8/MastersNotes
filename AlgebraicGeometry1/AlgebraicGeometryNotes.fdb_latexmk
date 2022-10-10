@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1664571802 "/mnt/d/MasterSem1/AlgebraicGeometry1/AlgebraicGeometryNotes.tex" "/mnt/d/MasterSem1/AlgebraicGeometry1/AlgebraicGeometryNotes.pdf" "AlgebraicGeometryNotes" 1664571803
+["pdflatex"] 1665411431 "/mnt/d/MasterSem1/AlgebraicGeometry1/AlgebraicGeometryNotes.tex" "/mnt/d/MasterSem1/AlgebraicGeometry1/AlgebraicGeometryNotes.pdf" "AlgebraicGeometryNotes" 1665411473
   "/etc/texmf/web2c/texmf.cnf" 1654427308 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/mnt/d/MasterSem1/AlgebraicGeometry1/AlgebraicGeometryNotes.aux" 1664571803 606 59bb3e62c06678613b21919454fe63a2 ""
-  "/mnt/d/MasterSem1/AlgebraicGeometry1/AlgebraicGeometryNotes.tex" 1664571801 17672 63b805bcffe1412962dbe274f1a2d17b ""
+  "/mnt/d/MasterSem1/AlgebraicGeometry1/AlgebraicGeometryNotes.aux" 1665411432 1016 e9f9357225f5400728424d17998f9d8b ""
+  "/mnt/d/MasterSem1/AlgebraicGeometry1/AlgebraicGeometryNotes.tex" 1665411472 23015 7a9907d77a9368e42bc74183527d4ac3 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -56,13 +56,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1664538260 4770781 1ed1abab22da9c3e2cc82e4db562318b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1664538271 8259118 493bbb3aa0febd51ad55649219f4a84d ""
-  "AlgebraicGeometryNotes.aux" 1664571803 606 59bb3e62c06678613b21919454fe63a2 "pdflatex"
-  "AlgebraicGeometryNotes.tex" 1664571801 17672 63b805bcffe1412962dbe274f1a2d17b ""
-  "AlgebraicGeometryNotes.toc" 1664571803 317 27d13aae1f48b8161173c9bebf60761e "pdflatex"
+  "AlgebraicGeometryNotes.aux" 1665411432 1016 e9f9357225f5400728424d17998f9d8b "pdflatex"
+  "AlgebraicGeometryNotes.tex" 1665411472 23015 7a9907d77a9368e42bc74183527d4ac3 ""
+  "AlgebraicGeometryNotes.toc" 1665411432 528 636d6b742fd371d0cec9ebade882380b "pdflatex"
   (generated)
-  "AlgebraicGeometryNotes.log"
-  "AlgebraicGeometryNotes.pdf"
   "/mnt/d/MasterSem1/AlgebraicGeometry1/AlgebraicGeometryNotes.pdf"
   "AlgebraicGeometryNotes.toc"
-  "AlgebraicGeometryNotes.aux"
+  "AlgebraicGeometryNotes.pdf"
   "/mnt/d/MasterSem1/AlgebraicGeometry1/AlgebraicGeometryNotes.log"
+  "AlgebraicGeometryNotes.log"
+  "AlgebraicGeometryNotes.aux"

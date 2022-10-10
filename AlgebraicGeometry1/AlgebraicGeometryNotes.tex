@@ -4,16 +4,17 @@
 \author{Lael John}
 \usepackage{amsmath, amsfonts, amssymb, amsthm}
 
-\newtheorem{thm}{Theorem}[chapter]
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{cor}{Corollary}[thm]
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{proposition}{Proposition}[section]
 
 \theoremstyle{definition}
-\newtheorem*{defn}{Definition}
-\newtheorem{eg}{Example}[chapter]
+\newtheorem*{definition}{Definition}
+\newtheorem{example}{Example}[chapter]
 \newtheorem*{huh}{Thoughts}
-\newtheorem*{rem}{Remark}
+\newtheorem*{remark}{Remark}
 \begin{document}
 \maketitle
 \chapter*{Preface}
@@ -29,58 +30,58 @@ Note that the textbook suggests that an algebraic variety is simply a geometric 
 \end{huh}
 
 \section{Formal Definition}
-\begin{defn}[Affine Algebraic Variety]
+\begin{definition}[Affine Algebraic Variety]
 The common zero set, of a collection $\{F_i\}_{i\in I}$, complex polynomials in complex n dimensional space, namely $\mathbb{C}^n$. We thus write 
 $$V = \mathbb{V}(\{F_i\}_{i \in I}) \subset \mathbb{C}^n$$
-\end{defn}
-\begin{rem} Here it doesnt seem to matter what the index set is, countable or uncountable
-\end{rem}
-\begin{eg}Consider $V = \mathbb{V}(x_1, x_2) \subset \mathbb{C}^3$. This AAV corresponds to the common zero set of the two polynomials $x_1$ and $x_2$ in $\mathbb{C}^3$. We end up with only the line $x_3 = 0$. 
+\end{definition}
+\begin{remark} Here it doesnt seem to matter what the index set is, countable or uncountable
+\end{remark}
+\begin{example}Consider $V = \mathbb{V}(x_1, x_2) \subset \mathbb{C}^3$. This AAV corresponds to the common zero set of the two polynomials $x_1$ and $x_2$ in $\mathbb{C}^3$. We end up with only the line $x_3 = 0$. 
 \begin{huh}Even though these "lines" are supposed to be considered as such, remember they're actually dealing with complex variables, so in reality we're dealing with $\mathbb{R}^6$\end{huh}
-\end{eg}
+\end{example}
 One of the issues with this definition of an AAv, is that we run into the problem that these objects are technically \textit{embedded} in a higher space, i.e. their properties may depend on the space in which they're situated. That's not really ideal.
-\begin{rem}
+\begin{remark}
 Also remember, we're specifying that these are \textbf{COMPLEX} affine algebraic varieties, because for reasons we'll see later, using $\mathbb{C}$ makes life a lot easier than using other fields like $\mathbb{R}$ or $\mathbb{Q}$.
-\end{rem}
-\begin{eg}
+\end{remark}
+\begin{example}
 Another set of examples to consider are the n-dimensional complex space $\mathbb{C}^n$, along with the empty set, and singleton sets (i.e. single point sets). All these are trivial examples of affine algebraic varieties (???).\\
 Okay so, the space $\mathbb{C}^n$ is an AAV, because $$\mathbb{C}^n = \mathbb{V}(0)$$
 which makes sense because its vacuously true. Similarly for $\phi$, the polynomial required is any non-zero constant polynomial.\\
 Finally for single point sets, the only way that point is the only solution to a polynomial, is if the following holds
 $$(a_1, a_2, \ldots a_n) = \mathbb{V}((x-a_1)(x-a_2)\ldots(x-a_n))$$
-\end{eg}
-\begin{eg}
+\end{example}
+\begin{example}
 Consider another example, the zero set of one \textit{convex} polynomial in $\mathbb{C}^2$, which we'll be projecting into $\mathbb{R}^2$ as a parabola for now. Consider $$V_1 = \mathbb{V}(y - x^2) \subset \mathbb{C}^2$$ or 
 $$V_2 = \mathbb{V}(x^2y + xy^2 - x^4 - y^4) \subset \mathbb{C}^2$$ or even
 $$V_3 = \mathbb{V}(y^2 - x^2 - x^3) \subset \mathbb{C}^2$$
 \begin{huh}
 Insert the graphs here from $R^2$ later
 \end{huh}
-\end{eg}
-\begin{eg}
+\end{example}
+\begin{example}
 Now also, the zero set of a single polynomial in an arbitrary dimension becomes a \textit{hypersurface} in $\mathbb{C}^n$. One classic example is $$V = \mathbb{V}(x^2 + y^2 - z^2) \subset \mathbb{C}^3$$ which represents a cone in regular $\mathbb{R}^3$, but lies in $\mathbb{C}^3 \approx \mathbb{R}^6$
-\begin{rem}
+\begin{remark}
 Note that in the actual variety, the waist of the cone does not become a single point, as it's representation in regular 3d space would suggest.
-\end{rem}
-\end{eg}
-\begin{eg}
+\end{remark}
+\end{example}
+\begin{example}
 We can now look at the zero set of linear polynomials. These too form affine algebraic varieties, called affine \textit{hyperplanes}. These could be, for example, the line $ax + by = c$ defined in the complex plane $\mathbb{C}^2$, with $a, b, c$ complex scalars.
 Now a \textit{linear affine algebraic variety} is essentially the common zero set, of a collection of linear polynomials, of similar form. Example: $$a_1x_1 + a_2x_2 + \ldots + a_nx_n - b$$ Now each such polynomial seems to generate a line (linear get it?) in $\mathbb{C}^n$, so then when you combine some $k$ linearly independent polynomials like this (meaning none of them can be expressed as a linear combination of the other polynomials), you get a complex space of dimension $n-k$
-\begin{rem}
+\begin{remark}
 Think carefully here, given lets say two lines in R3 that are \textit{linearly independent}, that simply means that one is not a multiple of the other, i.e. they do not fall on the same line through the origin. That's 3 vectors pointing in non linear directions. those lines are perpendicular to the planes generated by the 3 non linear vectors. Since they're non linear, their planes must intersect (is there a theorem for this) and give rise to a line (not a plane, definitely not a point, again look for a theorem) and thus, WHEN IN 3D space, if you have 2 linear polynomials, YOU GET A LINE (1 dimensional) N-K.
-\end{rem}\begin{huh}
+\end{remark}\begin{huh}
 Whats the difference between hypersurface and hyperplane?
 \end{huh}
-\end{eg}
-\begin{eg}
+\end{example}
+\begin{example}
 Now we consider the set of all $n \times n$ matrices, which technically belong to the space $\mathbb{C}^{n^2}$. In this new, weirdly high dimensional space, consider $SL(n, \mathbb{C})$ or the space of all complex $n\times n$ matrices with determinant 1. These form an affine algebraic variety when you consider their characteristic polynomials. This leads to a singular hypersurface (when considering only one matrix) or a hyperplane (again, need to figure out the difference)
-\end{eg}
-\begin{eg}
+\end{example}
+\begin{example}
     A final example is when we consider, in the same space as the last example, the set of all matrices in $\mathbb{C}^{n^2}$ with rank at most $k$. This example, called the \textit{determinantal variety}, is the whole of $\mathbb{C}^n$ if $k \geq n$ 
-    \begin{rem}
+    \begin{remark}
         This example requires a lot more thought before I consider it understood.
-    \end{rem}
-\end{eg}
+    \end{remark}
+\end{example}
 \section*{Counter/Nonexamples}
 \begin{enumerate}
     \item An open ball in $\mathbb{C}^n$, endowed with the regular Euclidean topology is not an algebraic variety. (For a full proof, see exercises). Similarly $GL(n, \mathbb{C})$ and $U(n)$ are also not algebraic varieties.
@@ -90,30 +91,30 @@ Now we consider the set of all $n \times n$ matrices, which technically belong t
 
 \section{The Zariski Topology}
 We begin this section with a slight review of topology thankfully. This intuition will then allow us to ask the question of what it means to impose a topology on the set of algebraic varieties. 
-\begin{defn}
+\begin{definition}
     A \textit{topology} on a set $X$ is a collection of subsets $\tau \subset P(X)$ such that the following properties hold. \begin{enumerate}
         \item $\phi, X \in \tau$
         \item Let $\{U_i\}_{i \in I}$ be a collection of members of $\tau$. Then $\bigcup_{i \in I} U_i \in \tau$
         \item Let $\{U_i\}_{i = 1}^n$ be a collection of members of $\tau$. Then $\bigcap_{i = 1}^n U_i \in \tau$
     \end{enumerate}
     The elements of $\tau$ are open sets, and $(X, \tau)$ is a topological space.
-\end{defn}
-\begin{rem}
+\end{definition}
+\begin{remark}
     It suffices to state that the topology is closed under pairwise intersection, because finite intersection then comes as a result of an inductive process.
-\end{rem}
+\end{remark}
 We now begin to consider what it means for a function to be continuous, in topological language, because we will then apply this logic to later concepts.
-\begin{defn}
+\begin{definition}
     A map $f: X \to Y$ between two topological spaces is continuous $$\iff f^{-1}(U \in \tau_Y) \in \tau_X$$
-\end{defn}
+\end{definition}
 This definition is pretty straight forward, open sets from the target space are \textit{pulled back} to open sets in the domain space.
 We can also now define a \textit{homeomorphism} as being $f:X \to^{cts} Y$ such that $f$ is bijective, and that in turn $f^{-1}$ is also continuous.
 \begin{huh}
     Interestingly, a topology can also be defined by simply taking the complements of all the properties we initially used, De Morgans Laws helping us out quite a bit. Closure under arbitrary intersection and finite union, when dealing with closed sets.
 \end{huh}
-\begin{eg}
+\begin{example}
     We begin with noting that a classic example of a topology in $\mathbb{C}^n = \mathbb{R}^{2n}$ is the Euclidean topology of open balls (generated by taking distances componentwise)
-\end{eg}
-\begin{rem}
+\end{example}
+\begin{remark}
     We pause here to note that any affine algebraic variety in $\mathbb{C}^n$ is closed in the Euclidean topology, and provide a proof below as follows.
     \begin{proof}
         $$V = \mathbb{V}(\{F_i\}_{i \in I}) = \bigcap_{i \in I} \mathbb{V}(F_i)$$
@@ -125,14 +126,14 @@ We can also now define a \textit{homeomorphism} as being $f:X \to^{cts} Y$ such 
         is closed in $\mathbb{C}^n$.\\
         Thus $V$ is closed.
     \end{proof}
-\end{rem}
+\end{remark}
 \begin{huh}
     This allows us to see how open balls in $\mathbb{C}^n$ are not affine algebraic varieties. The closed boxes though still elude us.
 \end{huh}
 Now we can begin to proceed with our construction of a topology on affine algebraic varieties in $\mathbb{C}^n$
-\begin{lem}
+\begin{lemma}
     The intersection of any affine algebraic varieties, and the union of finitely many affine algebraic varieties are affine algebraic varieties.
-\end{lem}
+\end{lemma}
 \begin{proof}
     We begin with the first part, dealing with the intersection of an arbitrary number of affine varieties. We look at $$\bigcap_{k \in K} \mathbb{V}(\{F_i\}_{i \in I_k}) = \bigcap_{k \in K} \bigcap_{i \in I_k} \mathbb{V}(F_i) = \mathbb{V}(\{F_i\}_{i \in I_k, k \in K}) = \mathbb{V}(\{F_i\}_{i \in \cup_{k \in K} I_k}) $$
     This pretty straightforward series of steps simply assumes an arbitrary number of affine algebraic varieties, writes each as an intersection of hypersurfaces, and then reframes the intersection as being an affine algebraic variety of the combined family of polynomials being considered.\\
@@ -140,39 +141,39 @@ Now we can begin to proceed with our construction of a topology on affine algebr
     Now we can rewrite this as being an affine algebraic variety of the following form $$ \mathbb{V}(\{F_iF_j\}_{i \in I, j \in J})$$ 
 \end{proof}
 
-\begin{defn}
+\begin{definition}
     The topology on $\mathbb{C}^n$ with closed subsets defined by affine algebraic varieties is the \textit{Zariski} Topology.
-\end{defn}
-\begin{rem}
+\end{definition}
+\begin{remark}
     Now because there may arise confusion, we denote the vector space $\mathbb{C}^n$ as it is, but the topological space with the Zariski topology we denote with $\mathbb{A}^n$ denoting \textit{affine n-space}. Quick asides here being that this topology is not Hasudorff, and it doesn't make sense to measure distances in this space. We are only concerned with algebraic manipulations in this space.
-\end{rem}
-\begin{rem}
+\end{remark}
+\begin{remark}
     We also note that though every affine algebraic variety is closed in the Euclidean topology, not every euclidean closed set is zariski-closed. This is due to the property of the Euclidean topolgy being generated by open balls of arbitrarily small radius, though by necessity, zariski-open sets are quite large. However, it does make sense to talk of a zariski topology in fields other than the complex numbers or the reals. 
-\end{rem}
-\begin{defn}
+\end{remark}
+\begin{definition}
     Every affine algebraic variety inherits a topology from the ambient $\mathbb{A}^n$ space, namely the Zariski topology that is induced on this smaller subset. In particular now, closed sets in $V$ are $V \cap W$ where $W \subset \mathbb{A}^n$ Thus closed sets of $V$ under this topology become affine algebraic \textit{subvarieties}
-\end{defn}
+\end{definition}
 
 \section{Morphisms}
 Seems like a familiar sounding word, though what are these things. They seem to be mappings from one affine algebraic variety to another. The word restriction is used here, and seems a little technical.
 
-\begin{defn}
+\begin{definition}
     Let $V \subset \mathbb{A}^n, W \subset \mathbb{A}^m$ be affine algebraic varieties. A mapping, $F: V \to W$ is a \textit{morphism of algebraic varieties}, if it is the restriction of a polynomial map on the affine spaces $\mathbb{A}^n \to \mathbb{A}^m$
-\end{defn}
-\begin{rem}
+\end{definition}
+\begin{remark}
     Here a polynomial mapping would seem to mean that if $F$ was a morphism, then from an n-dimensional space to an m-dimensional space 
     $$ (x_1, x_2, \ldots x_n) \in \mathbb{A}^n \mapsto (F_1(x), F_2(x), \ldots F_m(x)) \in \mathbb{A}^m $$
     WHERE each $F_i = a_1x_1 + a_2x_2 + \ldots + a_nx_n$
-\end{rem}
-\begin{rem}
+\end{remark}
+\begin{remark}
     Also note, that a morphism becomes a \textit{isomorphism} if it admits an inverse, i.e. that the morphism is bijective, and it's inverse is also a morphism. If an isomorphism exists between two affine algebraic varieties, then logically they are isomorphic.
-\end{rem}
-\begin{eg}
+\end{remark}
+\begin{example}
     Simply a change of coordinates of $\mathbb{A}^n$ is an example of a morphism. Here, suppose $L_i(x) = \lambda_{i1}x_1 + \lambda_{i2}x_2 + \ldots \lambda_{in}x_n + \mu_i$ denotes the change to each coordinate in $\mathbb{A}^m$. It becomes an isomorphism only if the associated matrix is invertible.
-\end{eg}
-\begin{eg}
+\end{example}
+\begin{example}
     The projection (interesting choice) of $\mathbb{A}^2 \to \mathbb{A}^1$ is an example of a morphism that is not bijective.
-\end{eg}
+\end{example}
 \begin{proposition}
     Let $F: V \to W$ be a morphism of affine algebraic varieties. $F$ is continuous in the Zariski topology.
 \end{proposition}
@@ -184,20 +185,81 @@ Seems like a familiar sounding word, though what are these things. They seem to 
 
 \section{Dimension}
 Regardless of what algebraic structure one deals with, this issue of dealing with how "big" the space is/how many tiny elements of the space are really required to form it is a key question. The first step to take is to figure out what constitutes the "atoms" of such spaces, the indivisible \textit{irreducible} elements of such a structure.
-\begin{defn}
+\begin{definition}
     A topological space $V$ is \textit{irreducible} if it cannot be written as the union of 2 non-trivial (meaning not $\phi$ or the space itself) closed subsets.
-\end{defn}
-\begin{rem}
+\end{definition}
+\begin{remark}
     Here note that we begin by talking about topological spaces, NOT affine algebraic varieties.
-\end{rem}
+\end{remark}
 Coincidentally, $\mathbb{A}^n$ is irreducible. This is because if we consider the affine algebraic variety $\mathbb{V}(0)$ then that is the same as $\mathbb{A}^n$. Thinking about it a little more and that seems to make sense. However if we consider, lets say $\mathbb{V}(xy, xz)$ then that can be written as $\mathbb{V}(x) \cup \mathbb{V}(y, z)$ Here the former denotes the plane in which $x=0$ and the latter denotes the x-axis (really speaking, we're dealing with complex numbers). In this newer example therefore, the example itself is reducible, but reducible to irreducible components. \\
 This brings us to an alternate way of showing if a closed subset of an affine algebraic variety is irreducible.
-\begin{defn}
+\begin{definition}
     A closed subset of an affine algebraic variety is an irreducible component of $V$ if it is \textit{maximal} with respect to inclusion among the closed subsets.
-\end{defn}
+\end{definition}
 Finally
-\begin{defn}
+\begin{definition}
     The $dimension$ dim $V$ of a variety $V$ is the length $d$ of the longest possible chain of proper irreducible subvarieties of $V$. 
     $$V_0 \subset V_1 \subset \ldots \subset V_{d-1} \subset V_d = V $$
-\end{defn}
+\end{definition}
+\chapter{Algebraic Foundations}
+Further forays into algebraic geometry will require some foundations in commutative ring theory. In this chapter, we'll be covering rings, ideals, homomorphism, $\mathbb{C}$-algebras, Noetherian rings and coordinate rings.\\
+Rings in this section that we consider are always abelian, asoociative and have a unity. 
+\begin{definition}
+    $f: R \to S$ is a ring homomorphism (map), if it is compatible with the ring structure (preserves addition, multiplication, and maps unities.)
+\end{definition}
+\begin{definition}
+    $I \neq \phi \subset R$, is an ideal if it is closed under addtion, and multiplication by elements in $R$. Trivial ideals of $R$ are $0, R$. Now if $I, J$ are ideals, then $I + J, I \cap J, IJ$ are all ideals.
+\end{definition}
+\begin{definition}
+    An ideal \textit{generated} by a $J \subset R$ is the smallest ideal that contains $J$, and is defined to be the 'span' of $J$ for a finite collection of elements in $J$. Notationally $I = <J>$.
+\end{definition}
+\begin{example}
+    One easy example of an ideal generated by a subset is the ring of complex polynomials in n variables, generated by $<x_1, x_2 \ldots x_n>$.
+\end{example}
+\begin{remark}
+    One easy remark to make is that a ring homomorphism $f$ maps ideals to ideals. Another is that the factor ring or quotient ring generated by an ideal is given by $R/I$ where each element is of the form $x + I$, and a canonical map exists between the original and its factor ring, namely $\pi: R \to R/I$ defined as $\pi(x) \mapsto x + I$
+\end{remark}
+\begin{proposition}
+    $\pi$ is an bijection between the ideals in $R/I$ and the ring of ideals of $R$ containing $I$. In particular, this bijection should also work on subsets of maximal, prime and radical ideals.
+\end{proposition}
+\begin{definition}
+    We now also talk of maximal ideals as being those that are the largest in a ring, the only larger ideal being the ring itself. Prime ideals are defined to be those where if $fg \in P$ then either $f \in P$ or $g \in P$. In paralell, we can prove that $R/M$ is a field, and $R/P$ is an integral domain, for $M, P$ a maximal and prime ideal respectively.
+    Finally, a radical ideal is one where if $f^n \in I, n > 0 \implies f \in I$ denoted by $\sqrt{I}$, and the factor ring $R/I$ is called a reduced ring.
+\end{definition}
+\begin{remark}
+    Here we note that every maximal ideal is prime, and every prime ideal is a radical ideal
+\end{remark}
+\begin{definition}
+    We define a $\mathbb{C}$-algebra to be a commutative ring containing $\mathbb{C}$ as a subring. (So for any $\mathbb{C}$-algebra, we can find a ring map from the ring itself to its $\mathbb{C}$-algebra.
+\end{definition}
+\begin{definition}
+    A $\mathbb{C}$-algebra homomorphism (map) is a ring map between two $C$-algebras, and such that it is \textit{linear} over $\mathbb{C}$ i.e. $\phi(\lambda r) = \lambda\phi(r), \forall \lambda \in \mathbb{C}, r \in R$
+\end{definition}
+\begin{definition}
+    A \textit{finitely-generated} $\mathbb{C}$-algebra is one that is isomorphic to $\mathbb{C}[x_1,x_2\ldots x_n]/I$ where $n \geq 0, I$ an ideal.
+\end{definition}
+\section{Hilbert's Basis Theorem}
+\begin{definition}
+    A ring is said to be \textit{Noetherian} if all of its ideals are finitely generated. This is equivalent to saying that any chain of ideals $I_1 \subset I_2 \subset \ldots I_n \subset \ldots$ stabilises, i.e. $\exists r > 0$ such that $I_r = I_{r + 1} + I_{r+2} \ldots$
+\end{definition}
+We now come to Hilberts Basis Theorem, which is as follows
+\begin{theorem}
+    If $R$ is a ring that is Noetherian, then the polynomial ring over $R, R[x]$ is so Noetherian (note that we only show this for one variable.)
+\end{theorem}
+\begin{corollary}
+    This immediately leads us to a conclusion that a polynomial ring in $n$ variables over a Noetherian ring is also Noetherian.
+\end{corollary}
+Note that this section requires some proofs to be considered complete. 
+\section{Hilbert's Nullstellensatz}
+This is one of the fundamental theorems of algebraic geometry. What we've seen so far, is that when we have an affine algebraic variety, the set of polynomials that vanishes on $V$ forms an ideal in the polynomial ring. In fact, such an ideal is a radical ideal. Thus we have a relation between ideals in algebra, and varieties (which are hypersurfaces/planes in n-dimensional complex space).
+\begin{theorem}
+    For any ideal $I \in \mathbb{C}[x_1, x_2 \ldots, x_n], \mathbb{I}(\mathbb{V}(I)) = \sqrt{I}$ which is further equal to $I$ if it is radical.
+\end{theorem}
+\begin{remark}
+    In particular, a subvariety of a variety can be mapped to an ideal containing the ideal mapped to the parent variety. The converse/inverse mapping is also valid.
+\end{remark}
+\begin{definition}
+    The coordinate ring of an affine algebraic variety, $V \in \mathbb{A}^n = \mathbb{C}[V] = \{f: V \to \mathbb{C} | f = F|_V, f \in \mathbb{C}[x_1, x_2 \ldots x_n]\}$
+    Thus the coordinate ring is also a $\mathbb{C}-algebra$
+\end{definition}
 \end{document}
