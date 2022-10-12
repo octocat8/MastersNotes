@@ -6,3 +6,4 @@
 \contentsline {chapter}{\numberline {2}Algebraic Foundations}{17}%
 \contentsline {section}{\numberline {2.1}Hilbert's Basis Theorem}{18}%
 \contentsline {section}{\numberline {2.2}Hilbert's Nullstellensatz}{19}%
+\contentsline {section}{\numberline {2.3}Relation between Algebra and Geometry}{20}%

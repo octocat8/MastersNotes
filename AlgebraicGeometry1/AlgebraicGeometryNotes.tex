@@ -256,10 +256,26 @@ This is one of the fundamental theorems of algebraic geometry. What we've seen s
     For any ideal $I \in \mathbb{C}[x_1, x_2 \ldots, x_n], \mathbb{I}(\mathbb{V}(I)) = \sqrt{I}$ which is further equal to $I$ if it is radical.
 \end{theorem}
 \begin{remark}
-    In particular, a subvariety of a variety can be mapped to an ideal containing the ideal mapped to the parent variety. The converse/inverse mapping is also valid.
+    Here note that $\mathbb{I}(V)$ denotes the ideal of all polynomials vanishing on $V$.
+\end{remark}
+\begin{remark}
+    The second remark to be made is that this theorem allows for us to relate affine algebraic varieties with ideals in $\mathbb{C}[x_1,x_2\ldots x_n]$, and this mapping that we find is inclusion reversing. i.e. points in $\mathbb{A}^n$ correspond to maximal ideals, prime ideals correspond to irreducible affine algebraic varieties etc. In fact,
+    $$V \subset W \mapsto \mathbb{I}(W) \subset \mathbb{I}(V) $$ and similarly
+    $$\mathbb{V}(I) \subset \mathbb{V}(J) \mapsto J \subset I $$
+\end{remark}
+\begin{remark}
+    Finally, algebraic geometry can, in fact, be studied in rings other than the complex n-space, but Hilberts Nullstellensatz seems to hold only over those fields that are algebraically closed (Hence its not working on the real numbers.)
 \end{remark}
 \begin{definition}
     The coordinate ring of an affine algebraic variety, $V \in \mathbb{A}^n = \mathbb{C}[V] = \{f: V \to \mathbb{C} | f = F|_V, f \in \mathbb{C}[x_1, x_2 \ldots x_n]\}$
-    Thus the coordinate ring is also a $\mathbb{C}-algebra$
+    Thus the coordinate ring is also a $\mathbb{C}-algebra$. In words, the polynomials in n complex variables, "restricted" to $V$ form the coordinate ring of an affine algebraic variety.
 \end{definition}
+Because we have the notion of coordinate rings, if we consider morphisms between 2 algebraic varieties, then there does exist a naturally induced ring map, which can be called the \textit{pullback} of the morphism. Such a pullback takes a polynomial from the target variety's coordinate ring, and maps it to a composition of the same polynomial composed with the original morphism. $ g \in \mathbb{C}(W) \mapsto to g \circ F \in \mathbb{C}(V); F: V \to W$
+\section{Relation between Algebra and Geometry}
+We end this chapter with a final theorem and corollary, establishing the concepts we learnt in this chapter.
+\begin{theorem}
+    Every \textit{finitely-generated, reduced} $\mathbb{C}$-algebra, is isomorphic to the coordinate ring of some affine algebraic variety $V \in \mathbb{A}^n$. (This allows us to essentially relate every ring that contains an algebraically closed field with the zero locus of a set of polynomials - a surface/plane - within that field in $n$ dimensions) \\
+    Now if $F: V \to W$ is a morphism of affine algebraic varieties, then its pullback is a homomorphism between its coordinate rings.\\
+    If $\sigma: R \to S$ is a $\mathbb{C}$-algebra homomorphism, (both finitely generated, reduced), then there exists a morphism between algebraic varieties corresponding to $R, S$, whose pullback is $\sigma$.
+\end{theorem}
 \end{document}
