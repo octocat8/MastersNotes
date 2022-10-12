@@ -21,7 +21,7 @@ This course seems to involve playing around with manifolds (which I'm given to u
 \tableofcontents
 \chapter{Differentiable Manifolds}
 This chapter is supposed to cover all the basics that I will end up using this semester in my study of these strange things called \textit{manifolds}, so we build up the required theory, starting from topological spaces, then on to topological manifolds, and then mapping, charting and atlas-ing our way to differentiable manifolds.
-\section{Topological Spaces}
+\section{Topological Spaces and Manifolds}
 This just rehashes now what we've seen in all previous lectures (and is supposed to be prerequisite material) but once more unto the breach
 \begin{definition}
     A \textit{topological space} $(X, \tau)$ is when you are given a set $X$ and $\tau \subset P(X)$ such that the following axioms hold true \begin{enumerate}
@@ -50,7 +50,6 @@ We know pause and recall a certain fact about equivalence relations partition th
 \begin{definition}
     A \textit{basis} for a topology $B \subset \tau$ is a set such that each open set in $\tau$ is a union of elements of $B$. The topological space $(X, \tau)$ is considered to be \textit{second-countable} if there is a countable basis for $\tau$.
 \end{definition}
-\section{Differentiable Manifolds}
 We now proceed to figure out what manifolds are (FINALLY)
 \begin{definition}
     A \textit{topological manifold of dimension m} is a topological space which is Hausdorff and second-countable, AND locally homeomorphic to $\mathbb{R}^m$. Here a homeomorphism is a mapping that is continuous, bijective, and whose inverse is also continuous.
@@ -87,10 +86,39 @@ Now
 \begin{definition}
     Now we say a mapping $f:M \to \mathbb{R}$ is differentiable at $p \in M \iff \exists$ a chart $(U, \phi)$ aroudn $p$ such that $f \circ \phi^{-1}: \phi(U) \to \mathbb{R}$ is differentiable at $\phi(p)$
 \end{definition}
+\begin{definition}
+    We now define a function/mapping between manifolds to be differentiable. $f: M \to N$ is smooth at $p \in M$ if \begin{itemize}
+        \item $f$ is continuous
+        \item there are charts $(U_m, \phi_m)$ and $(U_n, \phi_n)$ around $p, f(p)$ respectively such that $\phi_n \circ f \phi_m^{-1}$ is differentiable at $\phi_m(p)$
+    \end{itemize}
+\end{definition}
 \begin{remark}
     This differentiability, if it holds for one chart, holds for all other charts given the same domain.
 \end{remark}
 \begin{remark}
     $f: M \to N$ where $M, N$ are both differentiable manifolds, is a differentiable homeomorphism (NOTE: this does not mean it is a diffeomorphism, because $f^{-1}$ may in fact not be differentiable.)
 \end{remark}
+\section{Partitions of Unity}
+What on earth are these things, and why are they being introduced?
+\begin{definition}
+    Let $M$ be a manifold. Then a \textit{partition of unity} is a family of smooth functions $\{\mathcal{C}_a\}_{a \in A}, \mathcal{C_a}: M \to [0, 1]$ such that \begin{itemize}
+        \item $\forall p \in M, \exists U$ a neighborhood of $p; \{a \in A| \mathcal{C}_a |_U \neq 0$ is finite \} (only finitely many non-zero maps inside the particular family, from a neighborhood around a point on the manifold (in the manifold?))
+        \item $\sum_{a \in A} \mathcal{C}_a = 1$
+    \end{itemize}
+\end{definition}
+\begin{remark}
+    This concept does give us a pretty interesting visualisation, of a family of functions that peaks finitely around a point, before gradually subsiding away from that point?
+\end{remark}
+\begin{definition}
+    If we consider an open cover of $M$, then a partition of unity is said to be \textit{subordinate} to the cover, if the support of $\mathcal{C}_a \subset U_a$. Here we define the support to be the closure of the set of points that the function maps to non-zero reals.
+\end{definition}
+\begin{remark}
+    As a remark, it is possible to show that for every open cover of $M$, there will exist a partition of unity. The proof this statement involves the use of the fact that $M$ is second-countable.
+\end{remark}
+\section{Submanifolds}
+We now come to the last section of this chapter, where we deal with smaller sections of the larger manifolds we've begun to construct.
+\begin{definition}
+    Let $N$ be a smooth manifold of dimension $n$. Then $M \subset N$ is a submanifold of dimension $m \iff$ 
+    $$\forall p \in M \exists (U, \phi), (p \in U); \phi (U \cap M) = \phi(U) \cap \mathbb{R}^m\times\{0\}$$ This is what we call a chart that has been adapted to $M$. Such a set inherits the structure of a manifold, with its atlas given by the correspondingly restricted charts from the parent manifold.
+\end{definition}
 \end{document}

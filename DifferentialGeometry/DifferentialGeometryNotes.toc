@@ -1,4 +1,5 @@
 \contentsline {chapter}{\numberline {1}Differentiable Manifolds}{7}%
-\contentsline {section}{\numberline {1.1}Topological Spaces}{7}%
-\contentsline {section}{\numberline {1.2}Differentiable Manifolds}{9}%
-\contentsline {section}{\numberline {1.3}Differentiable Maps}{10}%
+\contentsline {section}{\numberline {1.1}Topological Spaces and Manifolds}{7}%
+\contentsline {section}{\numberline {1.2}Differentiable Maps}{10}%
+\contentsline {section}{\numberline {1.3}Partitions of Unity}{10}%
+\contentsline {section}{\numberline {1.4}Submanifolds}{11}%
