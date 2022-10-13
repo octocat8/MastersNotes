@@ -1,0 +1,7 @@
+\contentsline {chapter}{\numberline {1}Statistical Models and Estimators}{7}%
+\contentsline {section}{\numberline {1.1}Probability Theory}{7}%
+\contentsline {subsection}{\numberline {1.1.1}Random Variables and Vectors}{8}%
+\contentsline {section}{\numberline {1.2}Mathematical Statistics}{9}%
+\contentsline {subsection}{\numberline {1.2.1}Types of Statistical Models (based on parameter space)}{10}%
+\contentsline {subsection}{\numberline {1.2.2}Statistical Inference}{10}%
+\contentsline {section}{\numberline {1.3}Random Sample}{11}%
