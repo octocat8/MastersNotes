@@ -66,8 +66,39 @@ To end up being sucessful in our process of inference, we must necessarily make 
     \item Confidence intervals: Trying to determine some subset of $\Theta$, that with a reasonably high confidence, we can say $\theta$ lies.
     \item Hypothesis test: Basically partition the space into two, and classify $\theta$ as lying in one part of the space, or its complement.
 \end{itemize}
-\section{Random Sample}
+\section{Random Samples}
 A random sample, is a collection of \textit{independent} random variables, all having the same distribution as $X$. These are then called individually independent random variables. (Essentially a tuple, each using the same map on the coordinates.) The way one writes a random sample $(X_1, X_2 \ldots X_n)$\\
 A \textit{statistic} is now a function from a random sample $(X_1, X_2 \ldots X_n) \to T(X_1, X_2 \ldots X_n)$. Now if we go from an n-dimensional universe of outcomes (n different universes of outcomes) to a simple real number, then $T(X_1, X_2 \ldots X_n)$ is simply a random variable. If however, we go to p-dimensional real space, then each function $T_i(X_1, X_2 \ldots X_n)$ from $i = 1 \ldots p$ is component of $T(X_1, X_2 \ldots X_n)$, where each is a random variable, resulting in a random vector. 
+\subsection{Point Estimators}
+Now when we consider a statistic $T_n = T(X_1, X_2 \ldots X_n)$ which for the random sample $(X_1, X_2 \ldots X_n)$ in consideration, helps us approximate $\theta$, it becomes known as an \textit{estimator} of $\theta$. A specific value of $T_n$ i.e. $t_n$ is then what gets called an estimate of $\theta$.\\
+It may be helpful to consider some examples that help illustrate this concept.
+\begin{enumerate}
+    \item $\theta = E[X]$ and we consider our estimator to be $\overline{X_n} = \frac{1}{n} \sum_{i=1}^n X_i$, the sample mean.
+    \item $\theta = \textnormal{Var}[X] = E[(X - E[X])^2]$ and our estimator to be\\ $S_n^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X_n})^2$, the sample variance.
+\end{enumerate}
+In general though, one could have multiple estimators for a particular value of $\theta$, which brings us to the question of how we find an estimator that is preferable over others in consideration.
 
+\section{Performance Measures}
+Once we do have a statisctical model on a particular random sample, we look to see how our estimators behave given certain performance measures. These could be any of the following \begin{itemize}
+    \item \textbf{Bias}: Unsurprisingly, this tells us how accurate our expectation of the estimator is i.e. How far away from the true value of $\theta$ our estimator seems to be. Here $b_{\theta}(T_n) = E_{\theta}[T_n(\mathbf{X})] - \theta$. Here $b_{\theta}$ is our performance measure for each $\theta$, and we look to minimise it. \\ We end up calling our estimator "unbiased" if $b_{\theta}(T_n) = 0 \forall \theta \in \Theta \iff E_{\theta}[T_n(\mathbf{X})] = \theta$.
+    \item \textbf{Mean Squared Error}: This is a much more straightforward function, essentially returning the mean of the sum of squared deviations from the actual data. (Squaring allows us to work only with positive values, and look at the cumulative deviation from the sample.). $MSE_{\theta} = E_{\theta}[(T_n(\mathbf{X}) - \theta)^2]$
+    \item \textbf{Mean Absolute Deviation Error}: Rather than introducing a squaring term as in the previous measure, we could also just consider the absolute values of all the deviations. The formula for this becomes pretty simple $ABS_{\theta} = E_{\theta}[|T_n(\mathbf{X}) - \theta|]$
+    \item \textbf{General Expected Loss/Risk}: Such a function assigns a loss function to each estimator, parameter pair, and the goal then becomes to minimise the expectation of such a function. $R_{\theta}(T_n) = E_{\theta}[L(T_n(\mathbf{X}), \theta)]$
+\end{itemize}
+\begin{remark}
+    Here the goal in all these examples is to minimise the value of the functions. In particular, the general expected risk function allows for the definition of Loss to mirror either the mean absolute deviation, mean squared error. However, it could also set a threshold for acceptable levels of loss, before considering all those models where loss would be higher than that set threshold.
+\end{remark}
+\subsection{Asymptotic properties of a sequence of statistics}
+When considering a sequence of statistics, we try and look at the asymptotic properties of such a sequence. In particular, if $<T_n = T(X_1,X_2\ldots X_n)>$ then when $n \to \infty$ \begin{itemize}
+    \item $T_n$ is said to be asymptotically unbiased, if $\textnormal{lt}_{n \to \infty} (b_{\theta}(T_n)) \to 0$. Basically, as $n \to \infty$, the expected value of the estimator tends to the actual value of the parameter.
+    \item $T_n$ is weakly consistent, if the estimator in consideration converges in probability to the actual value of our parameter, for all values of $\theta$. Mathematically, $$\forall \theta \in \Theta, T_n \to^P \theta, n \to \infty$$ \begin{remark}
+        Here note that convergence in probabilty simply states that for a given value of $\epsilon$, the probability of a member of a sequence of random variables differs at most by $\epsilon$ from some fixed random variable, as $n \to \infty$
+    \end{remark}
+    \item $T_n$ is strongly consistent if $$\forall \theta \in \Theta, T_n \to^{a.s} \theta, n \to \infty$$ \begin{remark}
+        Almost sure convergence is defined by the fact $$P(\{s \in S | \lim_{n \to \infty} X_n(s) = X(s)\}) = 1$$ where $S$ is the sample space. The probability of, for each outcome, the sequence of random variables tending to a fixed random variable, is exactly 1. This chain implies weak consistency.  
+    \end{remark}
+    \item Finally, $T_n$ can be said to be Mean Square Consistent, if the Mean Square Error (for an arbitrary value of $\theta$) of $T_n$ tends to 0 as $n \to \infty$.
+\end{itemize}
+\subsection{Asymptotic Normality}
+We're now looking at the behaviour of certain sequences of statistics, and seeing if they resemble normal distributions as $n \to \infty$. What fresh hell is this.
 \end{document}
