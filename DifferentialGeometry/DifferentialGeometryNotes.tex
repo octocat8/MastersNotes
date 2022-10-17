@@ -121,4 +121,56 @@ We now come to the last section of this chapter, where we deal with smaller sect
     Let $N$ be a smooth manifold of dimension $n$. Then $M \subset N$ is a submanifold of dimension $m \iff$ 
     $$\forall p \in M \exists (U, \phi), (p \in U); \phi (U \cap M) = \phi(U) \cap \mathbb{R}^m\times\{0\}$$ This is what we call a chart that has been adapted to $M$. Such a set inherits the structure of a manifold, with its atlas given by the correspondingly restricted charts from the parent manifold.
 \end{definition}
+\begin{remark}
+    If $M \subset N$ is a submanifold, then by definition it is a manifold of dimension $m$. The smoothness of the parent manifold is inherited by all its submanifolds.
+\end{remark}
+\chapter{Tangent Vectors}
+Before I begin writing this section, the notion of having a \textit{tangent} seems pretty straightforward, having a line/plane/hyperplane intersecting a surface/space at exactly one point. Since I've seen some applications of tangents in calculus (through the value of the derivative at a point being the measurement of the slope of the tangent vector to the function at that particular point) It may be interesting to see how tangent \textit{vectors} and \textit{spaces} begin to play a role in understanding how smooth manifolds behave. In particular, I would've thought previously that the "smoothness" of the manifold is a result of the derivative of the function generating said surface containing the space. (As I know now, differentiable manifolds don't really reside \textbf{within} a space, they simply are the space.)\\
+Also an observation to make given what I currently understand of Einsteins theory of how gravity is simply a curvature of space time, this makes it seem like the whole of our observable universe is simply a smooth manifold, and its curvature could have something to do with how its tangent vectors and spaces behave?\newpage
+\section{Tangent vectors and spaces}
+\begin{definition}
+    We begin with the definition of a tangent vector $p \in M$, where $M$ is a manifold. It is defined to be the equivalence class $[\gamma]$ of smooth curves. \\We define these to be $\gamma: (-\epsilon, \epsilon) \to M); \gamma(0) = p$ and $\gamma_1 \sim \gamma_2 \iff \exists$ a chart $(U, \phi); p \in U$ such that $(\phi \circ \gamma_1)' (0) = (\phi \circ \gamma_2)'(0)$
+\end{definition}
+\begin{remark}
+    Just to reiterate, these tangent vectors are the class of all curves passing through a particular point on the manifold, such that they pass through the point when the parameter is 0. When we consider 2 curves to be represented by the same class, that means that their when we look at them through a chart around the point in consideration, their derivatives in $\mathbb{R}^m$ are equal at the point.
+\end{remark}
+\begin{remark}
+    The second remark to be made is that as long as you have a tangent vector, then it remains a tangent vector regardless of the chart being used. The definition merely requires one chart. We can think of this by seeing that if $\psi$ is a chart different from $\phi$, then $\psi \circ \phi^{-1}$ is a chart that allows for the relation to still hold.
+\end{remark}
+Because we can talk about tangent \textit{vectors}, this gives us a hint towards figuring out what kind of algebraic structure we can impose on these vectors/how they interact with each other.
+\begin{definition}
+    A \textit{tangent space} is defined at a point $p \in M$, as the set of all tangent vectors at $p$. This space is denoted by $T_pM$.
+\end{definition}
+\begin{proposition}
+    $T_pM$ is a vector space, for some point $p \in M$
+\end{proposition}
+\begin{proof}
+    Simply consider an arbitrary chart $p \in (U, \phi)$. Then we can obtain a function from $T_pM \to \mathbb{R}^m$ defined by $[\gamma] = (\phi \circ \gamma)'(0)$. Because such a function is well defined (each vector corresponds to a point in the target, vectors that are equal have the same image) and that the function is injective (by definition of the equivalence class). It remains to show surjectivity. Taking an arbitrary vector $v \in \mathbb{R}^m$, and setting considering the line $\phi(p) + tv$, we get a curve on our manifold, $\gamma(t) = \phi^{-1}(\phi(p) + tv)$. Such a $\gamma$ definitely maps to $v$, thus we have a bijection between a neigborhood of tangent space, and a local neighborhood of $\phi(p) \in \mathbb{R}^m$  
+\end{proof}
+\begin{definition}
+    Let $p \in M$, $(U, \phi)$ a chart such that $p \in U$. Then we can denote the components of $\phi(p) = (x_1, x_2 \ldots x_m)$ where each $x_i: U \to \mathbb{R}$. Then when we consider the isomorphism given by the function taking $T_pM \to \mathbb{R}^m, [\gamma] \mapsto (\phi \circ \gamma)'(0)$, then we can see that the canonical basis of $\mathbb{R}^m$ induces a basis on $T_pM$. This basis can be given by $$\{\frac{\partial}{\partial x_1}|_p, \frac{\partial}{\partial x_2}|_p \ldots \frac{\partial}{\partial x_m}|_p\}$$
+\end{definition}
+\section{Derivative of a Map}
+We now consider how to define the derivative of a smooth map (as we recall, a map between manifolds, continuous, and whose composition with a chart from one and the inverse of a chart from the other is differentiable at a point). 
+\begin{definition}
+    The derivative of a smooth map $f: M \to N$ at $p \in M$ is given by $(f_*)_p: T_pM \to T_(f_p)N$ where $[\gamma] \mapsto [f \circ \gamma]$
+\end{definition}
+\begin{proposition}
+    $(f_*)_p$ is well defined and linear.
+\end{proposition}
+\begin{proof}
+    This should be pretty easy to check. For well defined-ness, consider a tangent vector $[\gamma]$. Then $\gamma(0) = p$. when we consider $(f_*)_p([\gamma]) = [f \circ \gamma]$, then we need to show that this is also a tangent vector and $f \circ \gamma(0) = f(p)$. \\This is true by definition, therefore every element in the domain has an image in the codomain.\\ If we consider $[\gamma_1] = [\gamma_2]$. Then $ (f_*)_p([\gamma_1]) = [f \circ \gamma_1] = [f \circ \gamma_2] = (f_*)_p([\gamma_2])$ (Here we're simply interchanging the classes because nominally, they each represent the same set.) Thus each element in the domain is mapped to a single image.\\ Now to check for linearity, if we consider $(f_*)_p(\alpha[\gamma_1] + \beta[\gamma_2])$ where $\alpha, \beta$ are reals, then trivially this is the same as $\alpha[f \circ \gamma_1] + \beta[f \circ \gamma_2]$\\ (I say trivially, but really multiplying by a scalar real just expands/shrinks the curve in $M$ and thus also correspondingly expands/shrinks the curve in $N$. It becomes possible to add the curves because they are both 0 as they pass through $p \in M$.)
+\end{proof}
+\begin{remark}
+    We could also prove this very simply by considering the fact that the charts are linear, and that the smooth map is also linear and well defined. Since we are then performing a simple composition of functions, along with the differentiation operator that is also linear, then the final mapping is also well defined and linear.
+\end{remark}
+\begin{remark}
+    Our second remark more naturally follows, that the chain rule can be applied for a composition of smooth maps. \\ As an example, if $g, f$ are smooth maps between spaces $M, N, L$, then $\forall p \in M$, we have $(g \circ f)_{*p} = (g_*)_{f(p)}(f_*)_p$ which maps $T_pM \to T_{g(f(p))}L$
+\end{remark}
+\begin{remark}
+    One final remark to be made is that if we consider a chart $(U, \phi)$ such that $p \in U \subset M$, then $\phi$ is a diffeomorphism of manifolds.
+\end{remark}
+
+\section{Regular-Level Sets}
+We begin by 
 \end{document}
