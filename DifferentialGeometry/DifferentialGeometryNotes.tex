@@ -171,6 +171,33 @@ We now consider how to define the derivative of a smooth map (as we recall, a ma
     One final remark to be made is that if we consider a chart $(U, \phi)$ such that $p \in U \subset M$, then $\phi$ is a diffeomorphism of manifolds.
 \end{remark}
 
-\section{Regular-Level Sets}
-We begin by 
+\section{Regular-Level Set Theorem}
+We begin by revising (or hearing for the first time) the inverse function theorem in $\mathbb{R}^n$. If we consider a diffeomorphism between 2 open subsets of $\mathbb{R}^n$, then for all elements of the domain, the diffeomorphism becomes an isomorphism, because it also has an inverse.
+\begin{lemma}
+    Let $U \subset \mathbb{R}^n$ be open. Let the function $f: U \to \mathbb{R}^n$ be smooth such that $D_q f: \mathbb{R}^n \to \mathbb{R}^n$ is an isomorphism for some $q \in U$. Then there exists $V \subset U$, of $q$ such that $f|_V: V \to f(V)$ is a diffeomorphism.
+\end{lemma}
+Because we know that the above stated inverse function theorem is true in n-dimensional real space, we can try and port such a theorem over to our study of manifolds, resulting in the following corollary.
+\begin{corollary}
+    Let $f: M \to N$ be a smooth map, $p \in M$ such that $(f_*)_p: T_pM \to T_{f(p)}N$ an isomorphism. Then $\exists W \subset M, p \in W$ such that $f|_W: W \to f(W)$ is a diffeomorphism.
+\end{corollary}
+\begin{remark}
+    A rough sketch of the proof simply involves taking charts on $M, N$ and applying the inverse function theorem in $\mathbb{R}^m, \mathbb{R}^n$ and then composing the charts with the function in consideration.
+\end{remark}
+Now that we have such a foundation, proving the existence of a diffeomorphism when dealing with a smooth map and an isomorphism, we can now think of submersions (so to speak) and regular values.
+\begin{lemma}
+    Let $U \in \mathbb{R}^n \times \mathbb{R}^{k-n}$ such that $ 0 \in U$. Also consider $f: U \to R$ to be a smooth function, such that $(D_0 f)|_{\mathbb{R}^n \times \{0\}}: \mathbb{R}^n \times \{0\} \to \mathbb{R}^n$ is an isomorphism. Then, there exists a diffeomorphism $\tau$ between neighborhoods in $\mathbb{R}^n \times \mathbb{R}^{k-n}$ such that $f \circ \tau^{-1} = \pi$
+\end{lemma}
+The previous \textit{Submersion theorem in $\mathbb{R}^n$} basically tells us that when we consider an diffeomorphism from an open set containing the origin in $k$ dimensional space, to $n$ dimensional space $k > n$, we can find another diffeomorphism such that when we compose both, we get simply the projection onto $n$ dimensional space.
+\begin{definition}
+    A \textit{regular value} of $f: M \to N$, a smooth map is a point $c \in N$ such that $\forall p \in f^{-1}(c), (f_*)_p: T_pM \to T_{f(p)}$ is surjective.
+\end{definition}
+We now move on to our final theorem of the section, building on everything we've learnt about tangent vectors, spaces, derivatives of smooth maps and regular values.
+\begin{theorem}
+    Let $f: M \to N$ be a smooth map, and let $c \in N$ be a regular value, such that $f^{-1}(c) \neq \emptyset$. Then \begin{itemize}
+        \item $f^{-1}(c)$ is a submanifold of $M$, with a dimension of $m - n$ (Here we're assuming the dimension of $M > N$)
+        \item $\forall p \in f^{-1}(c): T_p f^{-1}(c) = \textnormal{Ker}(f_*(p))$
+    \end{itemize}
+\end{theorem}
+\section{Tangent vectors as derivations at a point}
+
 \end{document}
