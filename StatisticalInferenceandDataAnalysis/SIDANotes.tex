@@ -101,4 +101,55 @@ When considering a sequence of statistics, we try and look at the asymptotic pro
 \end{itemize}
 \subsection{Asymptotic Normality}
 We're now looking at the behaviour of certain sequences of statistics, and seeing if they resemble normal distributions as $n \to \infty$. What fresh hell is this.
+\begin{definition}
+    A univariate estimator $T_n$ for $\theta \in \Theta$ is said to be \textit{asymptotically normally distributed} if, $\forall \theta \in \Theta, \exists V_{\theta} > 0$ such that $$\sqrt{n}(T_n - \theta) \to^D N(0, V_{\theta}), n \to \infty$$
+    Here $V_{\theta}$ is called the asymptotic variance of $T_n$, and $T_n \approx N(\theta, \frac{V_{\theta}}{n})$
+\end{definition}
+\begin{remark}
+    Here to understand such a definition, when trying to estimate a point value for our parameter, we check the difference between the estimator and the sample value as we go further along the sequence. As that starts to resemble a normal distribution with mean 0 and some positive variance, the defnition is satisfied.
+    The symbol symbolises a convergence in distribution.
+\end{remark}
+\begin{remark}
+    We can extend such a definition to multivariate estimators, where now instead of considering just one $V_{\theta}$, instead we look for a positive-definite, symmetric matrix $\Sigma_{\theta}$, called the asymptotic variance-covariance matrix as $n \to \infty$ if it exists.
+\end{remark}
+
+If $T_n$ is asymptotically normal, then we consider $\sqrt{n}(T_n - \theta)$ to be bounded in probability.
+
+\subsection{Functions of estimators}
+Now that we have a basic understanding of estimators and how to measure their performance and long term behaviour, we can begin to talk about functions on given estimators. Very simply put, if $T_n$ is an estimator of $\theta$, and $g$ is a function, then $g(T_n)$ is an estimator of $g(\theta)$.
+
+The \textit{Delta Method} tells us that given an asymptotically normal univariate estimator for the parameter, and $g$ being differentiable on $\mathbb{R}$, never $0$, then $$\sqrt{n}(g(T_n) - g(\theta)) \to^D N(0, g'(\theta)^2 V_{\theta})$$
+
+\begin{remark}
+    Note though, that $V_{\theta}$ does seem to depend on $\theta$ for an asymptotically normal estimator. Now the question arises wheter we can find an estimator for which this is not the case, i.e if there exists a function $g$ such that when applied on our estimator, the resulting estimator tends in distribution towards a normal distribution around 0, with a constant positive variation, for all $\theta$. Clearly this means $g'(\theta)^2 V_{\theta} = c^2$ which boils down to solving the differential equation $\frac{d g(\theta)}{d\theta} = \frac{c}{\sqrt{V_{\theta}}}$
+\end{remark}
+
+In similar fashion, we can also talk about a function of a multivariate estimator being asymptotically normal, and a similar remark also follows.
+
+\section{Optimal Estimators}
+When considering a model $(\Omega, \mathcal{A}, \{F_{\theta}| \theta \in \Theta \})$, then how does one begin to find a 'best' estimator for $\theta$, based on a random sample given? In general the answer would be to either remove bias entirely, or minimise one of the performance measures that deals with error. In particular, this might also be a minimisation of our general expected loss/risk function.
+
+Such a minimisation may not always be possible, hence our restricting the class of estimators in consideration, to better arrive at an answer.
+\subsection{UMVUE (Uniform Minimum Variance Unbiased Estimator)}
+When considering the class of unbiased estimators, with a finite variance, then an estimator is said to be an UMVUE of $\theta$ if \begin{itemize}
+    \item $E_{\theta}[T_n] = \theta \forall \theta \in \Theta$
+    \item For any other $S_n$ unbiased estimator of $\theta$, $\textnormal{Var}_{\theta}[T_n] \leq \textnormal{Var}_{\theta}[S_n]$
+\end{itemize}
+A characterisation of such an UMVUE given by CR Rao tells us that if we consider an unbiased estimator with finite variance, for all parameter values, then it is an UMVUE $\iff E_{\theta}[T_nU_n] = 0 \forall \theta \in \Theta$, and $\forall U_n$, an unbiased estimator of 0 with finite variance.
+
+An UMVUE is unique (slightly obvious)
+
+\subsection{BLUE (Best Linear Unbiased Estimators)}
+Sometimes when considering classes of estimators, we can restrict our set even further to just those estimators that are unbiased, and a linear combination of the observations. $T_n$ is a BLUE if \begin{itemize}
+    \item $E_{\theta}[T_n] = \theta \forall \theta \in \Theta$
+    \item $T_n$ is a linear estimator ($T_n = \sum_{i = 1}^n c_iX_i, c_i \in \mathbb{R})$
+    \item For any other linear unbiased estimator, the variance of $T_n$ is lesser or equal to it, for all values of $\theta$.
+\end{itemize}
+\begin{remark}
+    UMVUE $\implies$ BLUE. Also, there do exist many distributions where it may not be possible to find linear unbiased estimators at all. 
+\end{remark}
+\subsection{Minimax Estimators}
+We could also search for the estimators whose maximal possible risk is the least. Such an estimator becomes a Minimax Estimator.
+\subsection{Bayesian Estimator}
+In the Bayesian framework, here our parameters are also random variables/vectors, distributed over the space $\Theta$. First a prior distribution is assumed (based on past data/current beliefs, but an assumption is made regardless.) The information of the random sample is combined with the prior distribution to better estimate $\theta$.
 \end{document}

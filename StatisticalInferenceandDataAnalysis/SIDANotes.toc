@@ -9,3 +9,9 @@
 \contentsline {section}{\numberline {1.4}Performance Measures}{12}%
 \contentsline {subsection}{\numberline {1.4.1}Asymptotic properties of a sequence of statistics}{12}%
 \contentsline {subsection}{\numberline {1.4.2}Asymptotic Normality}{13}%
+\contentsline {subsection}{\numberline {1.4.3}Functions of estimators}{14}%
+\contentsline {section}{\numberline {1.5}Optimal Estimators}{14}%
+\contentsline {subsection}{\numberline {1.5.1}UMVUE (Uniform Minimum Variance Unbiased Estimator)}{15}%
+\contentsline {subsection}{\numberline {1.5.2}BLUE (Best Linear Unbiased Estimators)}{15}%
+\contentsline {subsection}{\numberline {1.5.3}Minimax Estimators}{15}%
+\contentsline {subsection}{\numberline {1.5.4}Bayesian Estimator}{16}%
