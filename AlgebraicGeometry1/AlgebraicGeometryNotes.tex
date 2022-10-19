@@ -278,4 +278,36 @@ We end this chapter with a final theorem and corollary, establishing the concept
     Now if $F: V \to W$ is a morphism of affine algebraic varieties, then its pullback is a homomorphism between its coordinate rings.\\
     If $\sigma: R \to S$ is a $\mathbb{C}$-algebra homomorphism, (both finitely generated, reduced), then there exists a morphism between algebraic varieties corresponding to $R, S$, whose pullback is $\sigma$.
 \end{theorem}
+\chapter{Projective Varieties}
+\section{Projective Space}
+When talking about affine spaces, these may not be compact (which is a desirable property, though why this is the case needs further research on my part). Projective space $\mathbb{P}^n$ is what solves our problem. By adding a \textit{point at infinity} (could be one, could be a line, could be a plane) the space now under study is a lot nicer/amenable to study.
+
+\begin{definition}
+    Projective space $\mathbb{P}^n$ is the set of all one-dimensional subspaces of $\mathbb{C}^{n+1}$. This is simply to say that the projective space of $n$ dimensions is the set of all lines passing through the origin in complex $n+1$ dimensional space
+\end{definition}
+\begin{remark}
+    Note that we could for all intents and purposes, choose the projective space to be over any field, (resulting in further branches of mathematics like algebraic number theory), but for now we restrict ourselves to the most general (most algebraically complete?) space of complex numbers.
+\end{remark}
+Traditionally, since projective space deals with equivalence classes of elements in affine space, we write the classes as $[x_1:x_2:\ldots:x_n]$. It helps to think of projective space as being regular $n$ dimensional complex space, along with a point at infinity in every "direction".
+\section{Projective Varieties}
+One remark to be made before proceeding regards the differences between affine space and projective space is that analytic functions in projective space are simply constant functions. Therefore, we cannot simply find non-trivial polynomial functions in any projective space, so it makes no sense to talk about a common zero locus.
+
+Instead what we end up doing is considering a class of \textit{homogenous} polynomials, (all the terms have the same degree). The zero set of a homogenous polynomial is well defined in projective space. In fact if $F \in \mathbb{C}[x_0, x_1, \ldots x_n]$ is homogenous, with degree $d$, then $F(\lambda x_0, \ldots \lambda x_n) = \lambda^d(F(x_0 \ldots x_n))$. This allows us to say that if we find a zero of a particular homogenous polynomial, all other scalar multiples of that point are also in the zero set of the polynomial. Thus the zeros in $\mathbb{C}^{n+1}$ simply becomes the union of all the complex lines passing through the origin that satisfy the polynomial.
+
+\begin{definition}
+    A \textit{projective algebraic variety} in $\mathbb{P}^n$ is the common zero set of an arbitrary collection of homogenous polynomials in $n+1$ variables. Mathematically $$V = \mathbb{V}(\{F_i\}_{i \in I}) \subset \mathbb{P}^n$$
+\end{definition}
+\begin{remark}
+    Note that most projective varieties are sort of cone shaped, though this may not be the case for affine varieties.
+\end{remark}
+\begin{definition}
+    When considering $V \subset \mathbb{P}^n$, a projective variety, then the ideal of polynomials in $n+1$ variables vanishing over $V$ $$\mathbb{I}(V) = \{F \in \mathbb{C}[x_0 \ldots x_n] | F(V) = 0\}$$ is called the homogenous ideal of the projective variety.
+\end{definition}
+Because we now have some relation between projective varieties and ideals, we can think of applying Hilbert's Basis Theorem and Nullstellensatz to these projective varieties. 
+The \textit{Homogenous Nullstellensatz} states that projective varieties $V \subset \mathbb{P}^n$ are in bijection with the radical ideals of the polynomal ring $\mathbb{C}[x_0, \ldots , x_n]$. Thus now when we consider the factor ring $\mathbb{C}[x_0 \ldots x_n]/\mathbb{I}(V)$, we see the homogenous coordinate ring, identical in fact, to the coordinate ring of the affine cone over $V \subset \mathbb{A}^{n+1}$.
+
+Similarly to the affine case, we can consider projective varieties to be closed sets of a topology, that we will come to call the \textit{Zariski topology on projective space}.
+
+\section{Projective Closure}
+Given all the comparison between affine and projective space, we can think of affine space as being one of the coordinate 'leaves' of projectives space (maybe even as a dense open subset). In this case the projective space becomes the completion/compactification of the affine space. Because this is the case, we can start visualising affine algebraic varieties in $\mathbb{P}^n$
 \end{document}
