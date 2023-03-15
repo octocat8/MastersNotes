@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.9.30)  9 OCT 2022 16:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.9.30)  15 MAR 2023 21:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/mnt/d/MasterSem1/CommutativeAlgebra/CommutativeAlgebraNotes.tex
-(/mnt/d/MasterSem1/CommutativeAlgebra/CommutativeAlgebraNotes.tex
+**/mnt/d/MastersNotes_SelfExplanation/CommutativeAlgebra/CommutativeAlgebraNotes.tex
+(/mnt/d/MastersNotes_SelfExplanation/CommutativeAlgebra/CommutativeAlgebraNotes.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
@@ -106,7 +106,7 @@ Package: amsthm 2017/10/31 v2.20.4
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count192
 \l__pdf_internal_box=\box47
-) (/mnt/d/MasterSem1/CommutativeAlgebra/CommutativeAlgebraNotes.aux)
+) (/mnt/d/MastersNotes_SelfExplanation/CommutativeAlgebra/CommutativeAlgebraNotes.aux)
 \openout1 = `CommutativeAlgebraNotes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -135,9 +135,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-] [3] [4
+]
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
-] (/mnt/d/MasterSem1/CommutativeAlgebra/CommutativeAlgebraNotes.toc)
+ []
+
+[3] [4
+
+] (/mnt/d/MastersNotes_SelfExplanation/CommutativeAlgebra/CommutativeAlgebraNotes.toc)
 \tf@toc=\write3
 \openout3 = `CommutativeAlgebraNotes.toc'.
 
@@ -145,20 +150,64 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Chapter 1.
-[7] [8] [9] [10] [11] [12] [13] (/mnt/d/MasterSem1/CommutativeAlgebra/CommutativeAlgebraNotes.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 47--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--53
+
+ []
+
+[8] [9] [10] [11] [12] [13] [14]
+Chapter 2.
+[15
+
+] [16
+
+]
+Chapter 3.
+[17] [18
+
+]
+Chapter 4.
+[19] [20
+
+]
+Chapter 5.
+[21] [22
+
+]
+Chapter 6.
+[23] [24
+
+]
+Chapter 7.
+[25] (/mnt/d/MastersNotes_SelfExplanation/CommutativeAlgebra/CommutativeAlgebraNotes.aux) ) 
 Here is how much of TeX's memory you used:
  1664 strings out of 481239
- 21154 string characters out of 5920377
+ 21352 string characters out of 5920377
  254572 words of memory out of 5000000
  16958 multiletter control sequences out of 15000+600000
  542099 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,8n,27p,974b,251s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,8n,27p,1058b,249s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /mnt/d/MasterSem1/CommutativeAlgebra/CommutativeAlgebraNotes.pdf (13 pages, 149532 bytes).
+Output written on /mnt/d/MastersNotes_SelfExplanation/CommutativeAlgebra/CommutativeAlgebraNotes.pdf (25 pages, 162072 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 133 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

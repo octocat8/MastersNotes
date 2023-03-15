@@ -17,43 +17,56 @@
 \begin{document}
 \maketitle
 \chapter*{Preface}
-These notes for the course on commutative algebra are to serve as a reference point for all future work in algebraic geometry, and the larger realm of algebra in general. From what I can gather, we begin with a basic overview of ring theory, and then proceed to study modules and tensor products, before finally arriving at an introduction to category theory.
+These notes for the course on commutative algebra are to serve as a reference point for all future work in algebraic geometry, and the larger realm of algebra in general. From what I can gather, we begin with a basic overview of ring theory, and then proceed to study modules and tensor products, before finally arriving at an introduction to category theory.\\\\\textit{13th March 2023}
+
+After having finished one semester of study in commutative algebra, these notes must take up a larger mandate. Commutative Algebra as a subject serves as the basis for understanding rings and their actions on groups (much like groups act on sets). These newly constructed modules give rise to much more "concrete" structures (still very much in the realm of abstraction). Proceeding further into this jungle of theory, localisations appear as a way of formally defining the existence of rational numbers as being the multiplicative extension of the integers, and then extending that conception to the modules previously encountered. The penultimate stage of this journey deals with understanding the importance of tensor products, their existence and use, before finally arriving at the land of category theory: where we go "beyond" abstract algebra, and take a peek behind the curtain of almost all mathematics. (or rather, the mathematics that I have encountered so far.)
 \tableofcontents
 \chapter{Rings}
-We begin by going over what we already know about rings, and use this knowledge as a foundation to pursue further advanced algebraic structures.
+We begin by going over what we already know about rings, and use this knowledge as a springboard to dive into other complex (both in terms of difficulty and in the regular mathematical sense) algebraic structures.
 \section{Definitions}
 \begin{definition}
-    A \textit{ring} is an algebraic structure $(R, +, .)$, where under the operation $+, (R, +)$ forms an abelian group, and under the operation $., (R, .)$ forms a semigroup (only closed and associative). 
+    A \textit{ring} is an algebraic structure $(R, +, \bullet)$, where under the operation $+, (R, +)$ forms an abelian group, and under the operation $\bullet, (R, \bullet)$ forms a semigroup (only closed and associative). 
 \end{definition}
 \begin{remark}
-    Here we call the ring \textit{commutative}, if the $.$ operation is abelian. Similarly we can also talk about the existence of a \textit{unity} in the ring for that same operation. NOTE: the only ring where the unity is not distinct from the identity (used to denote additive identity) is the $0$ ring, or the ring $(\{0\}, + , .)$. This ring is generally treated as an edge case, even though trivially, it is a field (a commutative division ring). For most rings that we talk about in the following sections, it is assumed that they are commutative (otherwise the course name would be redundant, and that they all have a unity.)
+    Here we call the ring \textit{commutative}, if the $\bullet$ operation is abelian. Similarly we can also talk about the existence of a \textit{unity} in the ring for that same operation. \\\\
+    NOTE: The only ring where the unity is not distinct from the identity (used to denote additive identity) is the $0$ ring, or the ring $(\{0\}, + , .)$. This ring is generally treated as an edge case, even though trivially, it is a field (a commutative division ring).\\
+    
+    For most rings that we talk about in the following sections, it is assumed that they are commutative (otherwise the course name would be redundant, and that they all have a unity.)
 \end{remark}
 \begin{definition}
-    A \textit{homomorphism} $f: R \to R$ is a mapping from one ring to another satisfying the following properties \begin{enumerate}
+    A \textit{ring homomorphism} $f: R \to R$ is a mapping from one ring to another satisfying the following properties \begin{enumerate}
         \item $f(x + y) = f(x) + f(y)$, which basically means that the images in the target ring share the same structure under addition.
         \item $f(xy) = f(x)f(y)$, again, meaning that the images in the target share the same structure under multiplication.
         \item Finally, $f(1_R) = 1_S$. The unity from one ring, under a homomorphism, must be mapped to the unity in the other.
     \end{enumerate}
 \end{definition}
 \begin{remark}
-    A subring is a subset of a ring that has a ring structure with respect to the parent operations. A homomorphism exists between such a subring and its parent. Homomorphisms are basically functions, and therefore when we consider their composition, the resulting function is also a homomorphism.
+    A subring is a subset of a ring that has a ring structure (closed under addition and multiplication, identity and unity, commutativity, and additive inverses) with respect to the parent operations. A homomorphism (injective) exists between such a subring and its parent. Homomorphisms can be treated like a special class of functions, and thus their composition is similar to the composition of functions, with the additional restrictions preserving their homomorphism-ness.
 \end{remark}
 \begin{definition}
-    An \textit{IDEAL} $I$ of a ring $R$ is a subring of $R$ that is also has the following property, namely that $RI \subset I$ or equivalently, $$\forall r \in R, i \in I, ri \in I$$ With this sort of subring, we can then begin to talk about $R/I$ or the quotient ring, i.e. $\{ x + I | x \in R \}$ with operations of $+, .$ defined slightly differently on this ring. Given an ideal, and such a quotient ring generated by it, one can find a canonical homomorphism $\pi: R \to R/I, \pi(x) \mapsto x + I$.
+    An \textit{ideal} $I$ of a ring $R$ is a subring of $R$ that is also has the following property, namely that $RI \subset I$ or equivalently, $$\forall r \in R, i \in I, ri \in I$$ 
+    This is akin to saying an ideal "absorbs" the entire ring. 
+    \\\\
+    With this sort of substructure, we can then begin to talk about $R/I$ or the quotient ring, i.e. $\{ x + I | x \in R \}$ with operations of $\oplus,\odot$ defined slightly differently on this ring. This allows us to view the ring as two kinds of structure, both the regular, and a certain meta-ring structure, as larger sets (or cosets in this case) also can be used to represent elements in the quotient ring. 
+    \\
+    Thus, given an ideal a quotient ring generated by it, one can find a canonical homomorphism $\pi: R \to R/I, \pi(x) \mapsto x + I$. \\\\ \textit{Let me be clear here, whenever one uses the word canonical, it simply means "natural" or "obvious", and most mathematics professors/textbooks don't seem to explain this clearly enough/explicitly enough to students. If something is canonical, but doesn't appear obvious, then it might be a good idea to check your understanding of the underlying concept. (Very rarely is it the case that such a function appears out of thin air to confuse a student.)}
 \end{definition}
 \begin{huh}
-    Consider a ring $R$ and an ideal $I$. Considering the set of ideals in $R$ containing $I$, they are also ideals, say $\{I_a\}_{a \in A}$. Also now considering the set of ideals in the quotient ring $R/I$, we see that they are subrings such that $(x + I)\mathcal{I} \subset \mathcal{I}$
+    Consider a ring $R$ and an ideal $I$. Considering the set of ideals in $R$ containing $I$, they are also ideals, say $\{I_a\}_{a \in A}$. Also now considering the set of ideals in the quotient ring $R/I$, we see that they are subrings such that $(x + I)\mathcal{I} \subset \mathcal{I}$. This ends up leading to the correspondence theorem for rings (according to Rotman). We are able to find a bijection between the ideals in $R$ containing $I$, and the ideals in $R/I$ 
 \end{huh}
 \begin{definition}
     When we talk about a ring homomorphism (ring map in future), we can think about the elements in the domain that map to the identity in the target, i.e. $\{ x \in R| f(x) = 0\}$. This set is so important in our study, we term it ker $F$ or the \textit{kernel} of $f$, denoted by $f^{-1} (0)$. In a similar vein, the image of $f$, denoted im $f = f(R)$
 \end{definition}
 \begin{huh}
-    Now when we consider a ring map, the kernel of $f$ is an ideal of the domain ring, (trivial to prove). However, when we consider the image of the map, in $R_2$, then we cannot directly say that it is an ideal, merely that it is a subring (because it does map all of $R_1$'s structure into $R_2$). Now that we have those two observations, when thinking about the quotient ring of $R_1/\textnormal{ker} f$, we know that all the elements are of the form $r + \textnormal{ker} f$. This new quotient ring is apparently isomorphic to the image of $f$. Which should be easy enough to see, a well defined function $\phi: R_1/\textnormal{ker} f \to \textnormal{im} f$ where each element in the quotient ring is mapped to its corresponding image. i.e. $\phi(r + \textnormal{ker} f) = f(r)$.
-    Now clearly we can see that $\phi$ is a homomorphism, and it remains to be proved as to whether it is a bijection. Clearly, it is so. Thus we gain an understanding of the first ring isomorphism theorem.
+    Now when we consider a ring map, the kernel of $f$ is an ideal of the domain ring, (trivial to prove). However, when we consider the image of the map (in $R_2$) then we cannot directly say that it is an ideal, merely that it is a subring (because it does map all of $R_1$'s structure into $R_2$). Now that we have those two observations, when thinking about the quotient ring of $R_1/\textnormal{ker} f = R_1 / K$, we know that all the elements are of the form $r + K$. This new quotient ring is apparently isomorphic to the image of $f$. Which should be easy enough to see, a well defined function $\phi: R_1/K \to \textnormal{im} f$ where each element in the quotient ring is mapped to its corresponding image. i.e. $\phi(r + K) = f(r)$.
+    Now clearly we can see that $\phi$ is a homomorphism, and it remains to be proved as to whether it is a bijection (which it clearly is, with a bit of definition chasing). Thus we gain an understanding of the first ring isomorphism theorem.
 \end{huh}
 \begin{definition}
-    Pivoting slightly, we define a \textit{zero-divisor} in $R$ to be a non-zero element such that, when operated upon with another non-zero element, it results in the identity. $xy = 0; x, y \neq 0$. Then both are zero divisors. If a ring has no zero divisors, it is called an \textit{Integral domain.} A related term \textit{nilpotent}, refers to an element $x \in R$ such that $\exists n \in \mathbb{N}; x^n = 0$. Finally, units in $R$ are those elements that have inverses.
+    Pivoting slightly, we define a \textit{zero-divisor} in $R$ to be a non-zero element such that, when operated upon with another non-zero element, it results in the identity. $xy = 0; x, y \neq 0$. (both are zero divisors of each other in this example). If a ring has no zero divisors, it is called an \textit{Integral domain.} A related term \textit{nilpotent}, refers to an element $x \in R$ such that $\exists\; n \in \mathbb{N}; x^n = 0$. Finally, units in $R$ are those elements that have inverses.
 \end{definition}
+\begin{huh}
+    A nilpotent element $x$ is always going to be a zero divisor (think about breaking down $x^n = x^{n-1} x$). The converse though, is not always true. The nilpotents of a ring are also closed under multiplication (taking the required $n$ to be the LCM of the corresponding "elementary" exponenets.) The units of a ring behave even better, forming an abelian group ($R^{\times}$) with respect to the multiplication operation (the shoes-and-socks property plays a role here). How do nilpotents and units combine? If $x \in R^{\times}$, and $y$ nilpotent, is it possible to find an inverse for $x + y$, or is this resultant element nilpotent?. Clearly it is not nilpotent (for every value of $n$, and by the binomial expansion, there is always a non-zero term). 
+\end{huh}
 We now discuss the types of ideals, and see where each of those definitions leads us in our understanding of rings.
 \begin{definition}
     A \textit{principal ideal}, is one that can be generated by a single element within it. $I \subset R; I = <x>, x \in R$. (Very clearly we can see that $R$ itself is a principal ideal, generated by $1$.)
@@ -66,9 +79,10 @@ We now discuss the types of ideals, and see where each of those definitions lead
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    We go from 1 to 2, 2 to 3 and 3 to 1.
+    We go from 1 to 2, 2 to 3 and then 3 to 1.
     If we assume $R$ is a field, then we can immediately see that it contains the ideals generated by $1$ and $0$. Now for any other ideal that could possibly exist (say $I$), there is at least one non-zero, non-unity element in it. BUT because $R$ is a field, when multiplying with elements from $R$, since $I$ is an ideal we get $1 \in I \implies I = R$.\\
-    IF we assume $R$ has only trivial ideals, and consider a ring map to $R'$, then since ker $f$ needs to be an ideal, thus it must be either $<0>$ or $<1>$. But if it is the former, then it only maps the zero of one ring to the zero in the other, hence the function is injective (characterisation). If the latter, then all elements are mapped to the zero of the other ring.
+    IF we assume $R$ has only trivial ideals, and consider a ring map to $R'$, then since ker $f$ needs to be an ideal, thus it must be either $<0>$ or $<1>$. But if it is the former, then it only maps the zero of one ring to the zero in the other, hence the function is injective (characterisation). If the latter, then all elements are mapped to the zero of the other ring.\\
+    Finally, assume that $f$ maps $R \to R' \neq \emptyset$. This takes care of the situation where ker $f = R$. Since $f$ is injective, assume that there is a non-unit element $x \in R$. This element generates an ideal $(x) \subset R$, which is non-trivial. Now seeing $f$ as a particular homomorphism between $R$ and $R'/(x)$, since it must be injective, ker $f = (x)$ must equal ${0}$. Thus $x = 0$, and we are done, because the only non-unit is $0$
 \end{proof}
 \begin{definition}
     A \textit{prime} ideal in $R$ is one such that for any product of 2 elements that lies within the ideal, one of them must be originally part of the ideal. (similar to how we define prime numbers dividing products)
@@ -163,4 +177,10 @@ As a final proposition to this section, (and an apology to my future self for no
 \begin{proposition}
     If $R$ is a unique factorisation domain, then the polynomial ring generated by $R$ is also one, and as a corollary, $R[x_1, x_2, \ldots x_n]$ is also a unique factorisation domain.
 \end{proposition}
+\chapter{Modules}
+\chapter{Finiteness and Order in Modules}
+\chapter{Linear Algebra in the context of Modules}
+\chapter{Localisation}
+\chapter{Tensor Products}
+\chapter{Category Theory}
 \end{document}
